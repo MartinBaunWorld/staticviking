@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+{% from './macros.html' import post_preview %}
+<head>
+	<base href="{{blog.host}}/">
+
+	<!-- META -->
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- LINKS -->
+	<link rel="stylesheet" href="{{blog.host}}/static/css/style.css">
+	<link rel="stylesheet" href="{{blog.host}}/static/css/custom-css.css">
+	<link rel="icon" type="image/x-icon" href="{{blog.host}}/static/images/favicon.ico">
+	
+	<!-- META TAGS -->
+	<meta name="title" content="MartinBaun.com | Tech, Team Lead, Get Things Done">
+	<meta name="keywords" content="Project Management, Get Things Done, Tech, Musings"/>
+	<meta name="description" content="Tech, Team Lead, Get Things Done">
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="{{url}}">
+	<meta property="og:title" content="MartinBaun.com | Tech, Team Lead, Get Things Done">
+	<meta property="og:description" content="Tech, Team Lead, Get Things Done">
+	<meta property="og:image" content="{{blog.host}}/static/images/logo.jpg">
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image">
+	<meta property="twitter:url" content="{{url}}">
+	<meta property="twitter:title" content="MartinBaun.com | Tech, Team Lead, Get Things Done">
+	<meta property="twitter:description" content="Tech, Team Lead, Get Things Done">
+	<meta property="twitter:image" content="{{blog.host}}/static/images/logo.jpg">
+
+	<!-- CANONICAL URL -->
+	<link rel="canonical" href="{{url}}" />
+
+	<title>MartinBaun.com | Tech, Team Lead, Get Things Done</title>
+
+	<!-- JSON LD -->
+	<script type="application/ld+json">
+	{ 
+		"@context": "https://schema.org", 
+		"@type": "Blog",
+		"name": "MartinBaun.com | Tech, Team Lead, Get Things Done",
+		"image": "{{blog.host}}/static/images/logo.jpg",
+		"keywords": "Project Management, Get Things Done, Tech, Musings",
+		"url": "{{ url }}",
+		"description": "Tech, Team Lead, Get Things Done"
+	}
+	</script>
+
+</head>
+<body data-page="listing">
+	<div style="flex: 1;">
+		{% include "navbar.html" %}
+		<header class="listing-header">
+			<div class="header-inner">
+				<div class="intro-md">
+					<h1>Static Viking</h1>
+					<p>My Musings about tigers and their meat</p>
+				</div>
+			</div>
+		</header>
+		<div class="blogs-content-wrapper">
+			<div class="page-content">
+				<div class="blog-list">
+					{% for page in pages %}
+						{{ post_preview(page) }}
+					{% endfor %}
+				</div>
+				<div class="pagination-nav">
+					<div onclick="prevPosts()" class="{% if current_page == prev_page %}pagination-disabled{% endif %}">
+						<img src="{{blog.host}}/static/images/left-arrow.svg" alt="">
+						<span>Newer Posts</span>
+					</div>
+					<div onclick="nextPosts()" class="{% if current_page == next_page %}pagination-disabled{% endif %}">
+						<span>Older Posts</span>
+						<img src="{{blog.host}}/static/images/right-arrow.svg" alt="">
+					</div>
+				</div>
+			</div>
+			{% include "sidebar.html" %}
+		</div>
+	</div>
+
+	{% include "footer.html" %}
+	{% include "javascript.html" %}
+	<script>
+		const pages_urls_str = "{{pages_urls}}".replace(/&#39;/g, "'").replace(/'/g, '"')
+		const pages_urls_arr = JSON.parse(pages_urls_str)
+		function prevPosts() {
+			if ({{current_page}} == {{prev_page}}) return
+
+			window.location = pages_urls_arr[{{prev_page}} - 1]
+		}
+		function nextPosts() {
+			if ({{current_page}} == {{next_page}}) return
+
+			window.location = pages_urls_arr[{{next_page}} - 1]
+		}
+	</script>
+
+</body>
+</html>

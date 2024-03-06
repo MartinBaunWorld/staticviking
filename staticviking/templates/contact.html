@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+{% from './macros.html' import related_posts %}
+<head>
+	<base href="{{blog.host}}/">
+
+	<!-- META -->
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- LINKS -->
+	<link rel="stylesheet" href="{{blog.host}}/static/css/style.css">
+	<link rel="stylesheet" href="{{blog.host}}/static/css/custom-css.css">
+	<link rel="icon" type="image/x-icon" href="{{blog.host}}/static/images/favicon.ico">
+	<title>Contact</title>
+	
+	<!-- META TAGS -->
+	<meta name="title" content="{{page.title}} '{{ canon }}'">
+	<meta name="keywords" content="Contact, Page, Form"/>
+	<meta name="description" content="Fill up the form and I'll get back you to within 3 business days">	
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="{{page.url}}">
+	<meta property="og:title" content="{{page.title}}">
+	<meta property="og:description" content="Fill up the form and I'll get back you to within 3 business days">
+	<meta property="og:image" content="{% if page.image %}{{ page.image }}{% else %}{{blog.host}}/static/images/logo.jpg{% endif %}">
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image">
+	<meta property="twitter:url" content="{{page.url}}">
+	<meta property="twitter:title" content="{{page.title}}">
+	<meta property="twitter:description" content="Fill up the form and I'll get back you to within 3 business days">
+	<meta property="twitter:image" content="{% if page.image %}{{ page.image }}{% else %}{blog.host}}/static/images/logo.jpg{% endif %}">
+
+	<!-- JSON LD -->
+	<script type="application/ld+json">
+	{ 
+		"@context": "https://schema.org",
+		"@type": "BlogPosting",
+		"name": "Contact Us",
+		"image": "{% if page.image %}{{ page.image }}{% endif %}",
+		"keywords": "Contact, Page, Form",
+		"url": "{% if page.url %}{{page.url}}{% else %}{{blog.host}}{% endif %}",
+		"description": "Fill up the form and I'll get back you to within 3 business days"
+	}
+	</script>
+	<plugins></plugins>
+</head>
+<body>
+    <div style="flex: 1;">
+		{% include "navbar.html" %}
+		<div class="blogs-content-wrapper">
+			<div class="page-content">
+				<header>
+					<div class="header-inner">
+						<h1>{{ page.title }}</h1>
+                        <p>Fill up the form and I'll get back you to within 3 business days</p>
+					</div>
+				</header>
+                <div class="blog-content">
+					<form action="https://toolbun.com/tools/form/99999999999999" method="post">
+        				<input type="hidden" name="redirect" value="https://martinbaun.com/">
+						<div class="form-group">
+							<label for="input-0">Email</label>
+							<input type="email" id="input-0" name="email" required>
+						</div>
+						<div class="form-group">
+							<label for="input-1">Phone number</label>
+							<input type="text" id="input-1" name="phone" required/>
+						</div>
+						<div class="form-group">
+							<label for="textarea-2">Request</label>
+							<textarea id="body" name="request-2" required></textarea>
+						</div>
+						<button type="submit">Submit</button>
+					</form>
+                </div>
+			</div>
+			{% include "sidebar.html" %}
+		</div>
+	</div>
+
+	{% include "footer.html" %}
+
+	{% include "javascript.html" %}
+</body>

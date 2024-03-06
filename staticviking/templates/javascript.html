@@ -1,0 +1,28 @@
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
+<script>
+    const nav = document.querySelector('.main-nav')
+    const hamburger = document.querySelector('.hamburger-menu')
+    hamburger.addEventListener('click', () => nav.classList.toggle('show-nav'))
+
+    const observer = lozad();
+    observer.observe();
+    const asideInner = document.querySelector('aside .aside-inner')
+    let aside;
+    function checkSidebarHeight() {
+        const windowHeight = window.innerHeight;
+        const sidebarHeight = asideInner.offsetHeight;
+        console.log(document.body.getAttribute('data-page'));
+        if (sidebarHeight > windowHeight) {
+            asideInner.style.position = 'relative';
+            aside.style.marginTop = '185px'
+        } else {
+            asideInner.style.position = 'sticky';
+            aside.style.marginTop = '202px'
+        }
+    }
+    if (asideInner !== null && document.body.getAttribute('data-page') !== 'post') {
+        aside = document.querySelector('aside')
+        // checkSidebarHeight()
+        // window.addEventListener('resize', checkSidebarHeight)
+    }
+</script>

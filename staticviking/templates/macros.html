@@ -1,0 +1,39 @@
+{% macro post_preview(page, bcg) %}
+	<div class="blog-card">
+		<a href="{{page.url}}" class="card-img">
+			{% if page.image %}
+			<img class="lozad" data-src="{{page.image}}" alt="{{page.title}}">
+			{% else %}
+			<img class="lozad" data-src="https://unsplash.it/1600/900" alt="">
+			{% endif %}
+		</a>
+		<div class="blog-card-info">
+			<h3 style="background-color: {{bcg}}">
+				<a href="{{page.url}}">{{ page.title }}</a>
+			</h3>
+			<p>{{page.description}}</p>
+			<div class="tags">
+				{% for tag in page.tags %}
+					<a href="{{tag.url}}">{{tag.title}}</a>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+{% endmacro %}
+
+
+{% macro related_posts(page) %}
+{% if page.related %}
+    <div class="related-section">
+        <div class="related-section-inner">
+            <h2>You might also like</h2>
+            <p>Explore more similar articles below</p>
+            <div class="blog-list">
+		{% for page in pages %}
+			{{post_preview(page, 'var(--shade-gray-0)')}}
+		{% endfor %}
+            </div>
+        </div>
+    </div>
+{% endif %}
+{% endmacro %}

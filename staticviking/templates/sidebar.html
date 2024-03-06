@@ -1,0 +1,34 @@
+<aside>
+<div class="aside-inner">
+	<div class="sidebar-md">
+		<h2>Welcome Static Viking</h2>
+		<p>A developer's Static Rendering Engine. Created by and for developers.</p>
+		<ul>
+			<li>Zero-configuration</li>
+			<li>Just edit simple html templates</li>
+			<li>Deploy in seconds to Netlify or whatever</li>
+		</ul>
+		<p>Developed by <a href="https://MartinBaun.com">Martin Baun</a></p>
+	</div>
+
+	{% if blog.tags %}
+	<h2 style="margin-bottom: .6rem;">Tags</h2>
+	<div class="tags">
+		{% for tag in blog.tags %}
+		<a href="{{tag.url}}">{{tag.title}}</a>	
+		{% endfor %}
+	</div>
+	{% endif %}
+
+	<h2 style="margin-top: 1rem;">Newsletter</h2>
+	<form style="margin-top: 1rem; padding: 0;" action="https://toolbun.com/tools/form/2" method="post">
+		<input type="hidden" name="redirect" value="https://martinbaun.com">
+		<p style="margin: 1rem 0;">Subscribe to my newsletter if you like this and love tech.</p>
+		<div>
+			<label for="email-input">Email</label>
+			<input type="email" id="email-input" name="email" placeholder="Your email here...">
+		</div>
+		<button type="submit" class="btn btn-blue" style="width: 100%;margin-top: .8rem;">Subscribe</button>
+	</form>
+</div>
+</aside>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="https://www.w3.org/1999/xhtml">
+	<url>
+        <loc>{{url}}</loc>
+        <lastmod>{{today.strftime("%Y-%m-%d")}}</lastmod>
+	</url>
+	{% for page in pages %}
+	<url>
+        <loc>{{page.url}}</loc>
+        <lastmod>{{page.date.strftime("%Y-%m-%d")}}</lastmod>
+	</url>
+	{% endfor %}
+	{% for tag in tags %}
+	<url>
+		<loc>{{tag.url}}</loc>
+	</url>
+	{% endfor %}
+</urlset>
