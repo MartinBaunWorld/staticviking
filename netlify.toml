@@ -1,3 +1,3 @@
 [build]
 publish = "staticviking/dist"
-command = "cd staticviking && python3 statictiger.py build content dist --host=https://martinbaun.com/blog"
+command = "cd staticviking && python3 statictiger.py build content dist --host=https://staticvikingdemo.martinbaun.com"
