@@ -6,6 +6,7 @@ tags: ["Cool Article", "Article"]
 image: "solutions.jpg"
 ---
 
+> This was originally posted on [MartinBaun.com](MartinBaun.com).
 
 Here's a cool lorem ipsum text:
 
