@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 
 setuptools.setup(
-    name="staticviking",
+    name="staticviking2",
     packages=["staticviking"],
     package_dir={"staticviking": "staticviking"},
     package_data={
@@ -13,12 +13,12 @@ setuptools.setup(
         'staticviking.templates.abc': ["**"],
     },
     version="0.0.1",
-    author="Martin F",
-    author_email="pypi.org@tigerteamx.com",
-    description="Simplest Blog Engine for Developers",
+    author="Martin Baun",
+    author_email="pypi@martinbaun.com",
+    description="Simplest static page engine for Developers",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/tigerteamx/tigerblog",
+    url="https://martinbaun.com/blog/posts/staticviking-zeroconf-static-website-for-blogs-wikis/",
     install_requires=[],  # Used for dependencies
     entry_points={
         'console_scripts': ['staticviking = staticviking.staticviking:cli']

@@ -1,0 +1,13 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+staticviking/staticviking.py
+staticviking.egg-info/PKG-INFO
+staticviking.egg-info/SOURCES.txt
+staticviking.egg-info/dependency_links.txt
+staticviking.egg-info/entry_points.txt
+staticviking.egg-info/requires.txt
+staticviking.egg-info/top_level.txt
+staticviking.egg-info/zip-safe

@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: staticviking
+Version: 0.0.1
+Summary: Simplest Blog Engine for Developers
+Home-page: https://github.com/tigerteamx/tigerblog
+Author: Martin F
+Author-email: pypi.org@tigerteamx.com
+Keywords: blog,productivity,static site generator
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: Jinja2==3.1.2
+Requires-Dist: python-slugify==7.0.0
+Requires-Dist: python-frontmatter==1.0.0
+Requires-Dist: docopt==0.6.2
+Requires-Dist: Markdown==3.4.1
+Requires-Dist: htmlmin==0.1.12
+Requires-Dist: Pillow==9.0.1
+
+# Static Viking
+
+
+
+```
+Usage:
+  staticviking.py build [--config=<config>] [--future]
+  staticviking.py serve
+  staticviking.py buildserve [--config=<config>] [--future]
+  staticviking.py print [--config=<config>]
+
+Options:
+  -h --help
+```
