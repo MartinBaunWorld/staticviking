@@ -26,3 +26,62 @@
         // window.addEventListener('resize', checkSidebarHeight)
     }
 </script>
+<script>
+    let isDark = false
+
+    if(localStorage.getItem('blog-theme')) {
+        if (localStorage.getItem('blog-theme').includes('light')) {
+            localStorage.setItem('blog-theme', 'light')
+        } else {
+            localStorage.setItem('blog-theme', 'dark')
+        }
+    } else {
+        const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        if (darkModeMediaQuery.matches) {
+            localStorage.setItem('blog-theme', 'dark')
+        } else {
+            localStorage.setItem('blog-theme', 'light')
+        }
+    }
+
+    if (localStorage.getItem('blog-theme') == 'dark') {
+        isDark = true
+        document.body.classList.add('dark-theme')
+        document.querySelectorAll('img[data-dark]').forEach(img => {
+            if (!img.src.includes('-white')) {
+                setTimeout(() => img.src = img.src.replace(/(\.\w+)$/, '-white$1'), 100)
+            }
+        })
+    } else {
+        isDark = false
+        document.body.classList.remove('dark-theme')
+        document.querySelectorAll('img[data-dark]').forEach(img => {
+            if (img.src.includes('-white')) {
+                img.src = img.src.replace("-white", "");
+            }
+        })
+    }
+
+    const toggle = document.querySelector('.toggle')
+    toggle.addEventListener('click', () => {
+        if (isDark) {
+            isDark = false
+            document.body.classList.remove('dark-theme')
+            localStorage.setItem('blog-theme', 'light')
+            document.querySelectorAll('img[data-dark]').forEach(img => {
+                if (img.src.includes('-white')) {
+                    img.src = img.src.replace("-white", "");
+                }
+            })
+        } else {
+            isDark = true
+            document.body.classList.add('dark-theme')
+            localStorage.setItem('blog-theme', 'dark')
+            document.querySelectorAll('img[data-dark]').forEach(img => {
+                if (!img.src.includes('-white')) {
+                    img.src = img.src.replace(/(\.\w+)$/, '-white$1');
+                }
+            })
+        }
+    })
+</script>

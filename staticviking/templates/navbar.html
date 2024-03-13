@@ -1,7 +1,7 @@
 <nav class="main-nav">
     <div class="nav-inner">
         <a href="{{blog_url}}" class="logo">
-            <img class="lozad" data-src="{{blog.host}}/{% if blog.logo %}{{ blog.logo }}{% else %}/static/images/logo.png{% endif %}" alt="">
+            <img class="lozad" data-dark="dark" data-src="{{blog.host}}/{% if blog.logo %}{{ blog.logo }}{% else %}/static/images/logo.png{% endif %}" alt="">
         </a>
         <div class="nav-links">
             <a href="{{ blog.host }}">Blog</a>
@@ -12,6 +12,13 @@
             <div class="line line1"></div>
             <div class="line line2"></div>
             <div class="line line3"></div>
+        </div>
+        <div class="theme-mode">
+            <span class="light">Light</span>
+            <div class="toggle">
+                <div class="toggle-inner"></div>
+            </div>
+            <span class="dark">Dark</span>
         </div>
     </div>
 </nav>

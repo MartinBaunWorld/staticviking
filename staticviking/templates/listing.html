@@ -57,7 +57,7 @@
 			<div class="header-inner">
 				<div class="intro-md">
 					<h1>Static Viking</h1>
-					<p>My Musings about tigers and their meat</p>
+					<p>Musings about tech and meat</p>
 				</div>
 			</div>
 		</header>
@@ -70,12 +70,12 @@
 				</div>
 				<div class="pagination-nav">
 					<div onclick="prevPosts()" class="{% if current_page == prev_page %}pagination-disabled{% endif %}">
-						<img src="{{blog.host}}/static/images/left-arrow.svg" alt="">
+						<img src="{{ blog.host }}/static/images/left-arrow.svg">
 						<span>Newer Posts</span>
 					</div>
 					<div onclick="nextPosts()" class="{% if current_page == next_page %}pagination-disabled{% endif %}">
 						<span>Older Posts</span>
-						<img src="{{blog.host}}/static/images/right-arrow.svg" alt="">
+						<img src="{{blog.host}}/static/images/right-arrow.svg">
 					</div>
 				</div>
 			</div>

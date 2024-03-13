@@ -25,6 +25,14 @@ body {
     min-height: 100vh;
     background-color: var(--gray-shade-1);
 }
+body.dark-theme {
+    --gray-shade-0: #020817;
+    --gray-shade-1: #242831;
+    --gray-shade-2: #242831;
+    --gray-shade-4: #E3E3E3;
+    --gray-shade-5: #D1D1D1;
+    --gray-shade-6: #FCFCFC;
+}
 .page-content {
     padding-right: 2rem;
 }
@@ -68,6 +76,7 @@ nav {
 }
 .nav-inner {
     justify-content: flex-end;
+    gap: 10px;
 }
 nav .logo {
     position: absolute;
@@ -87,6 +96,43 @@ nav .logo img {
     text-decoration: none;
     font-weight: 500;
     letter-spacing: 1px;
+}
+.theme-mode {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-right: -135px;
+}
+@media (max-width: 1540px) { .theme-mode { margin-right: -100px; } }
+@media (max-width: 1540px) { .theme-mode { margin-right: -60px; } }
+@media (max-width: 1360px) { .theme-mode { margin-right: 0; } }
+.theme-mode span {
+    font-weight: 600;
+}
+.theme-mode .light {
+    color: #020817;
+}
+.theme-mode .dark {
+    color: #e3e3e3;
+}
+.toggle {
+    width: 50px;
+    height: 27px;
+    border-radius: 50px;
+    background-color: #777;
+    position: relative;
+    cursor: pointer;
+}
+.toggle .toggle-inner {
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 5px;
+    transition: 200ms ease-in-out transform;
 }
 .social-item {
     display: inline-flex;
@@ -281,6 +327,11 @@ form textarea {
     border-radius: 3px;
     outline: 1px solid var(--gray-shade-2);
     transition: 150ms ease-in-out outline;
+}
+body.dark-theme form input,
+body.dark-theme form textarea {
+    background-color: var(--gray-shade-1);
+    outline-color: #3E3E3E;
 }
 form input:focus,
 form textarea:focus {
@@ -523,3 +574,19 @@ select option {
     margin-bottom: 10px
 }
 /* FORM STYLES */
+
+
+/* ==== DARK THEME ==== */
+.dark-theme .theme-mode .light {
+    color: #777;
+}
+.dark-theme .theme-mode .dark {
+    color: #fff;
+}
+.dark-theme .toggle {
+    background-color: #e3e3e3;
+}
+.dark-theme .toggle .toggle-inner {
+    background-color: #020817;
+    transform: translate(21px, -50%);
+}
