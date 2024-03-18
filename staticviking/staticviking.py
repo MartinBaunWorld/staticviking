@@ -395,9 +395,9 @@ def build(blog):
 doc = """staticviking
 
 Usage:
+  staticviking.py new <host>
   staticviking.py build <content> <dist> [--tmpls=<tmpls>] [--host=<host>]
   staticviking.py buildserve <content> <dist> [--tmpls=<tmpls>] [--host=<host>]
-  staticviking.py start
 
 Options:
 
@@ -423,16 +423,23 @@ def cli():
     elif a['buildserve']:
         build(Blog(a['<content>'], a['<dist>'], a['--tmpls'], a['--host']))
         os.system(f"cd {a['<dist>']} && python3 -m http.server -b localhost")
-    elif a['start']:
+    elif a['new']:
+        if not os.path.exists("staticviking.py"):
+            shutil.copyfile(f"{LIB_DIR}/staticviking.py", "staticviking.py")
+
         if not os.path.exists("templates"):
             shutil.copytree(f"{LIB_DIR}/templates", "templates")
 
+        if not os.path.exists("build_prod"):
+            write("build_prod", f"#!/bin/sh\n\nstaticviking build content dist --host=\"{a['<host>']}\"")
+            add_execute_permission("build_prod")
+
         if not os.path.exists("build"):
-            write("build", "#!/bin/sh\nstaticviking build content dist --host=\"http://localhost:8000\"")
+            write("build", "#!/bin/sh\n\nstaticviking build content dist --host=\"http://localhost:8000\"")
             add_execute_permission("build")
 
         if not os.path.exists("buildserve"):
-            write("buildserve", "#!/bin/sh\nstaticviking buildserve content dist --host=\"http://localhost:8000\"")
+            write("buildserve", "#!/bin/sh\n\nstaticviking buildserve content dist --host=\"http://localhost:8000\"")
             add_execute_permission("buildserve")
 
 
