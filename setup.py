@@ -12,7 +12,7 @@ setuptools.setup(
         'staticviking': ['default_config.json', 'themes/*'],
         'staticviking.templates.abc': ["**"],
     },
-    version="0.0.2",
+    version="0.0.3",
     author="Martin Baun",
     author_email="pypi@martinbaun.com",
     description="Simplest static page engine for Developers",
