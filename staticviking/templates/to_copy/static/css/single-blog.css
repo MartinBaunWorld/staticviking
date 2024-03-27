@@ -95,6 +95,9 @@ li::before {
     border: 1px solid var(--gray-shade-3);
     border-top: 0;
 }
+.codeEl-wrapper code {
+    white-space: pre-wrap;
+}
 
 .share-section {
     display: flex;
@@ -166,4 +169,18 @@ li::before {
 .blog-content ul h5:hover .header-link,
 .blog-content ul h6:hover .header-link {
     display: flex;
+}
+
+.blog-content table {
+    max-width: 100%;
+    border: 1px solid var(--gray-shade-5);
+}
+.blog-content table th,
+.blog-content table td {
+    border: 1px solid var(--gray-shade-5);
+    padding: 3px;
+}
+
+.dark-theme .share-btn span {
+    color: #ffffff;
 }
