@@ -4,4 +4,4 @@ tmp/*
 run
 node_modules/*
 package-lock.json
-tigerblog.egg-info
+staticviking2.egg-info

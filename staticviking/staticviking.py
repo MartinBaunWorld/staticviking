@@ -216,7 +216,7 @@ class Blog:
                 continue
 
             image = page_data.get("image", "")
-            if image != '':
+            if image != '' and not (image.startswith("https://") or image.startswith("http://")):
                 # TODO: also make this image with my-blog-post.md
                 post_path = (
                     fn[len(self.content):].
