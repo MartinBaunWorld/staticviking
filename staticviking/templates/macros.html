@@ -1,10 +1,10 @@
 {% macro post_preview(page, bcg) %}
 	<div class="blog-card">
-		<a href="{{page.url}}" class="card-img">
+		<a href="{{page.url}}" class="card-img not-loaded">
 			{% if page.image %}
-			<img class="lozad" data-src="{{page.image}}" alt="{{page.title}}">
+			<img class="lozad blog-card-poster" data-src="{{page.image}}" alt="{{page.title}}">
 			{% else %}
-			<img class="lozad" data-src="https://unsplash.it/1600/900" alt="">
+			<img class="lozad blog-card-poster" data-src="https://unsplash.it/1600/900" alt="">
 			{% endif %}
 		</a>
 		<div class="blog-card-info">
@@ -29,7 +29,7 @@
             <h2>You might also like</h2>
             <p>Explore more similar articles below</p>
             <div class="blog-list">
-		{% for page in pages %}
+		{% for page in page.related %}
 			{{post_preview(page, 'var(--shade-gray-0)')}}
 		{% endfor %}
             </div>

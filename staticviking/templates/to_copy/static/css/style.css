@@ -96,6 +96,16 @@ nav .logo img {
     text-decoration: none;
     font-weight: 500;
     letter-spacing: 1px;
+    position: relative;
+}
+.nav-links a.active::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--blue-color);
+    bottom: -5px;
+    left: 0;
 }
 .theme-mode {
     display: flex;
@@ -166,6 +176,7 @@ header {
     object-fit: cover;
     user-select: none;
     pointer-events: none;
+    border-radius: 10px;
 }
 
 .tags a {
@@ -364,7 +375,7 @@ form label {
 /* BLOG LISTING */
 .related-section .blog-list {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 34px;
 }
 .blog-card {
@@ -392,6 +403,7 @@ form label {
     display: block;
     min-width: 400px;
     width: 400px;
+    height: 225px;
 }
 .card-img img {
     width: 100%;
@@ -409,7 +421,7 @@ form label {
     margin-top: 5px;
 }
 @media (max-width: 1030px) {
-    .card-img {width: 200px;min-width: 200px;}
+    .card-img {width: 200px;min-width: 200px;height: 225px;}
     .card-img img {height: 120px;}
 }
 @media (max-width: 950px) {
@@ -417,7 +429,8 @@ form label {
 }
 @media (max-width: 760px) {
     .blog-card {display: block;}
-    .card-img {width: 100%;}
+    .card-img {width: 100%; height: auto;}
+    .card-img.not-loaded { min-height: 220px; }
     .card-img img {height: auto;}
 }
 @media (max-width: 675px) {
@@ -462,7 +475,7 @@ form label {
     }
     .nav-links {
         position: absolute;
-        bottom: 0;
+        bottom: -23px;
         transform: translate(-100vw, 100%);
         width: 100%;
         background: var(--gray-shade-0);
@@ -475,6 +488,7 @@ form label {
     }
     .show-nav .nav-links {
         transform: translate(0, 100%);
+        z-index: 1;
     }
     .show-nav .hamburger-menu .line1 {
         transform: translateY(350%) rotate(45deg);
@@ -590,3 +604,4 @@ select option {
     background-color: #020817;
     transform: translate(21px, -50%);
 }
+.dark-theme .tags a { background-color: #3E3E3E; }
