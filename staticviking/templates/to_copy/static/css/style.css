@@ -459,10 +459,10 @@ form label {
 
 @media (max-width: 850px) {
     .hamburger-menu { display: flex; }
-    nav .logo { top: -25px; }
+    nav .logo { top: -25px; z-index: 2; }
     .nav-links a {
         margin-right: 0;
-        padding: 0.5rem 1rem;
+        padding: 0.5rem 2rem;
         display: block;
         width: 100%;
     }
@@ -471,7 +471,7 @@ form label {
         background-color: rgba(0, 0, 0, .08);
     }
     .nav-links .btn {
-        margin: 1rem;
+        margin: 1rem 2rem;
     }
     .nav-links {
         position: absolute;
@@ -604,4 +604,4 @@ select option {
     background-color: #020817;
     transform: translate(21px, -50%);
 }
-.dark-theme .tags a { background-color: #3E3E3E; }
+.dark-theme .tags a { background-color: #3E3E3E !important; }

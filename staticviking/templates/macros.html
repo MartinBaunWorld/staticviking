@@ -29,7 +29,7 @@
             <h2>You might also like</h2>
             <p>Explore more similar articles below</p>
             <div class="blog-list">
-		{% for page in page.related %}
+		{% for page in page.related[:3] %}
 			{{post_preview(page, 'var(--shade-gray-0)')}}
 		{% endfor %}
             </div>

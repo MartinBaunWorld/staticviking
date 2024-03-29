@@ -6,7 +6,7 @@ tags: []
 
 ## About Martin Baun
 
-I am Martin Baun. I have over a decade of experience in software development.
+I am [Martin Baun](https://twitter.com/MartinBaunWorld). I have over a decade of experience in software development.
 
 I love technology and innovation. I have a passion for software development, which I use to develop quality software to solve the needs of many people.
 
