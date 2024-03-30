@@ -102,10 +102,6 @@
 		if (preElements.length > 0) {
 			preElements.forEach(preEl => {
 				preEl.classList.add('preCodeEl')
-				// const codeBar = document.createElement('div')
-				// codeBar.classList.add('codeEl-bar')
-				// codeBar.innerHTML = `<button class="white-sm-button">Copy</button>`
-				// preEl.prepend(codeBar)
 
 				const codeEl = preEl.querySelector('code')
 
@@ -144,16 +140,6 @@
 						console.error("Failed to copy text: ", err);
 					}
 				})
-
-				// codeBar.querySelector('button').addEventListener('click', async () => {
-				// 	try {
-				// 		codeBar.querySelector('button').innerText = 'Copied'
-				// 		setTimeout(() => codeBar.querySelector('button').innerText = 'Copy', 2000)
-				// 		await navigator.clipboard.writeText(codeEl.innerText);
-				// 	} catch (err) {
-				// 		console.error("Failed to copy text: ", err);
-				// 	}
-				// })
 			})
 		}
 
