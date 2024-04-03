@@ -93,6 +93,10 @@ li::before {
     line-height: 2.5;
     color: var(--gray-shade-4);
 }
+@media (max-width: 700px) {
+    .lineNumberColumn span { font-size: 12px; }
+    .codeEl-wrapper code { font-size: 14px; }
+}
 .copy-code-btn {
     position: absolute;
     top: 10px;

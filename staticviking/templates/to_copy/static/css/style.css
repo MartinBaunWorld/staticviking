@@ -156,7 +156,6 @@ nav .logo img {
 }
 
 header {
-    min-height: 150px;
     padding: 2rem 0 2rem 0;
     text-align: center;
     display: flex;
@@ -170,6 +169,10 @@ header {
 .header-inner { width: 100%; }
 .header-inner * { color: var(--gray-shade-4) }
 .header-inner h1 { margin-bottom: .5rem; color: var(--gray-shade-6); font-size: 35px; }
+@media (max-width: 700px) {
+    .header-inner h1 { font-size: 25px; }
+    .header-inner p { font-size: 14px; }
+}
 .header-inner img {
     width: 100%;
     max-height: 450px;
@@ -475,16 +478,13 @@ form label {
     }
     .nav-links {
         position: absolute;
-        bottom: -23px;
+        bottom: -37px;
         transform: translate(-100vw, 100%);
         width: 100%;
         background: var(--gray-shade-0);
-        border-left: 1px solid var(--gray-shade-3);
-        border-right: 1px solid var(--gray-shade-3);
-        border-bottom: 1px solid var(--gray-shade-3);
+        border: 1px solid var(--gray-shade-3);
         flex-direction: column;
         align-items: flex-start;
-        transition: 200ms ease-in-out transform;
     }
     .show-nav .nav-links {
         transform: translate(0, 100%);
@@ -500,6 +500,9 @@ form label {
     .show-nav .hamburger-menu .line3 {
         transform: translateY(-350%) rotate(-45deg);
     }
+}
+@media (max-width: 820px) {
+    .nav-links { transition: 200ms ease-in-out transform; }
 }
 /* HAMBURGER MENU */
 
