@@ -101,22 +101,40 @@
 		const preElements = document.querySelectorAll('.blog-content pre')
 		if (preElements.length > 0) {
 			preElements.forEach(preEl => {
-				const codeBar = document.createElement('div')
-				codeBar.classList.add('codeEl-bar')
-				codeBar.innerHTML = `<button class="white-sm-button">Copy</button>`
-				preEl.prepend(codeBar)
+				preEl.classList.add('preCodeEl')
 
 				const codeEl = preEl.querySelector('code')
+
+				if (codeEl.innerText.split('\n').length) {
+					const codeBar = document.createElement('div')
+					codeBar.classList.add('lineNumberColumn')
+					for(let i = 1; i <= codeEl.innerText.split('\n').length; i++) {
+						const spanEl = document.createElement('span')
+						spanEl.innerText = i
+						codeBar.appendChild(spanEl)
+					}
+					preEl.prepend(codeBar)
+				}
 				const codeWrapperEl = document.createElement('div')
 				codeWrapperEl.classList.add('codeEl-wrapper')
 				codeWrapperEl.innerHTML = `<code>${codeEl.innerHTML}</code>`
 				codeEl.parentNode.insertBefore(codeWrapperEl, codeEl)
 				codeEl.parentNode.removeChild(codeEl)
 
-				codeBar.querySelector('button').addEventListener('click', async () => {
+				const copyBtn = document.createElement('button')
+				copyBtn.classList.add('copy-code-btn')
+				copyBtn.innerHTML = `
+				<svg width="13" height="16" viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path fill-rule="evenodd" clip-rule="evenodd" d="M9.66683 0.666016H1.66683C0.933496 0.666016 0.333496 1.26602 0.333496 1.99935V11.3327H1.66683V1.99935H9.66683V0.666016ZM11.6668 3.33268H4.3335C3.60016 3.33268 3.00016 3.93268 3.00016 4.66602V13.9993C3.00016 14.7327 3.60016 15.3327 4.3335 15.3327H11.6668C12.4002 15.3327 13.0002 14.7327 13.0002 13.9993V4.66602C13.0002 3.93268 12.4002 3.33268 11.6668 3.33268ZM11.6668 13.9993H4.3335V4.66602H11.6668V13.9993Z" fill="#E3E3E3"/>
+				</svg>
+				<span>Copy</span>
+				`
+				codeWrapperEl.appendChild(copyBtn)
+
+				copyBtn.addEventListener('click', async () => {
 					try {
-						codeBar.querySelector('button').innerText = 'Copied'
-						setTimeout(() => codeBar.querySelector('button').innerText = 'Copy', 2000)
+						copyBtn.querySelector('span').innerText = 'Copied'
+						setTimeout(() => copyBtn.querySelector('span').innerText = 'Copy', 2000)
 						await navigator.clipboard.writeText(codeEl.innerText);
 					} catch (err) {
 						console.error("Failed to copy text: ", err);

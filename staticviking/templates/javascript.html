@@ -6,6 +6,12 @@
 
     const observer = lozad();
     observer.observe();
+    const posters = document.querySelectorAll('.blog-card-poster')
+    if (posters) {
+        posters.forEach(poster => {
+            poster.addEventListener('load', (e) => e.target.parentElement.classList.remove('not-loaded'))
+        })
+    }
     const asideInner = document.querySelector('aside .aside-inner')
     let aside;
     function checkSidebarHeight() {
@@ -84,4 +90,12 @@
             })
         }
     })
+
+    const page = document.body.getAttribute('data-page')
+    if (page && page == 'listing') {
+        document.querySelector('.blog-link').classList.add('active')
+    }
+    if (!location.pathname.includes('posts') && location.pathname.includes('about')) {
+        document.querySelector('.about-link').classList.add('active')
+    }
 </script>
