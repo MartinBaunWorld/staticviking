@@ -1,6 +1,9 @@
 # Static Viking
 
-Checkout more here ![https://martinbaun.com/blog/posts/staticviking-zeroconf-static-website-for-blogs-wikis/](https://martinbaun.com/blog/posts/staticviking-zeroconf-static-website-for-blogs-wikis/)
+A beautiful static website made for your markdown files and simple templates. It only takes a minute to start and I have a video tutorial to help you below.
+
+
+Checkout more here [https://martinbaun.com/blog/posts/staticviking-zeroconf-static-website-for-blogs-wikis/](https://martinbaun.com/blog/posts/staticviking-zeroconf-static-website-for-blogs-wikis/)
 
 ```
 Usage:
