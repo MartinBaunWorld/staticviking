@@ -96,6 +96,16 @@ nav .logo img {
     text-decoration: none;
     font-weight: 500;
     letter-spacing: 1px;
+    position: relative;
+}
+.nav-links a.active::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--blue-color);
+    bottom: -5px;
+    left: 0;
 }
 .theme-mode {
     display: flex;
@@ -146,7 +156,6 @@ nav .logo img {
 }
 
 header {
-    min-height: 150px;
     padding: 2rem 0 2rem 0;
     text-align: center;
     display: flex;
@@ -160,12 +169,17 @@ header {
 .header-inner { width: 100%; }
 .header-inner * { color: var(--gray-shade-4) }
 .header-inner h1 { margin-bottom: .5rem; color: var(--gray-shade-6); font-size: 35px; }
+@media (max-width: 700px) {
+    .header-inner h1 { font-size: 25px; }
+    .header-inner p { font-size: 14px; }
+}
 .header-inner img {
     width: 100%;
     max-height: 450px;
     object-fit: cover;
     user-select: none;
     pointer-events: none;
+    border-radius: 10px;
 }
 
 .tags a {
@@ -364,7 +378,7 @@ form label {
 /* BLOG LISTING */
 .related-section .blog-list {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 34px;
 }
 .blog-card {
@@ -392,6 +406,7 @@ form label {
     display: block;
     min-width: 400px;
     width: 400px;
+    height: 225px;
 }
 .card-img img {
     width: 100%;
@@ -409,7 +424,7 @@ form label {
     margin-top: 5px;
 }
 @media (max-width: 1030px) {
-    .card-img {width: 200px;min-width: 200px;}
+    .card-img {width: 200px;min-width: 200px;height: 225px;}
     .card-img img {height: 120px;}
 }
 @media (max-width: 950px) {
@@ -417,7 +432,8 @@ form label {
 }
 @media (max-width: 760px) {
     .blog-card {display: block;}
-    .card-img {width: 100%;}
+    .card-img {width: 100%; height: auto;}
+    .card-img.not-loaded { min-height: 220px; }
     .card-img img {height: auto;}
 }
 @media (max-width: 675px) {
@@ -446,10 +462,10 @@ form label {
 
 @media (max-width: 850px) {
     .hamburger-menu { display: flex; }
-    nav .logo { top: -25px; }
+    nav .logo { top: -25px; z-index: 2; }
     .nav-links a {
         margin-right: 0;
-        padding: 0.5rem 1rem;
+        padding: 0.5rem 2rem;
         display: block;
         width: 100%;
     }
@@ -458,23 +474,21 @@ form label {
         background-color: rgba(0, 0, 0, .08);
     }
     .nav-links .btn {
-        margin: 1rem;
+        margin: 1rem 2rem;
     }
     .nav-links {
         position: absolute;
-        bottom: 0;
+        bottom: -37px;
         transform: translate(-100vw, 100%);
         width: 100%;
         background: var(--gray-shade-0);
-        border-left: 1px solid var(--gray-shade-3);
-        border-right: 1px solid var(--gray-shade-3);
-        border-bottom: 1px solid var(--gray-shade-3);
+        border: 1px solid var(--gray-shade-3);
         flex-direction: column;
         align-items: flex-start;
-        transition: 200ms ease-in-out transform;
     }
     .show-nav .nav-links {
         transform: translate(0, 100%);
+        z-index: 1;
     }
     .show-nav .hamburger-menu .line1 {
         transform: translateY(350%) rotate(45deg);
@@ -486,6 +500,9 @@ form label {
     .show-nav .hamburger-menu .line3 {
         transform: translateY(-350%) rotate(-45deg);
     }
+}
+@media (max-width: 820px) {
+    .nav-links { transition: 200ms ease-in-out transform; }
 }
 /* HAMBURGER MENU */
 
@@ -590,3 +607,4 @@ select option {
     background-color: #020817;
     transform: translate(21px, -50%);
 }
+.dark-theme .tags a { background-color: #3E3E3E !important; }
